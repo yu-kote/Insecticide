@@ -2,25 +2,27 @@
 using System.Collections;
 using System.Collections.Generic;
 
+/// <summary>
+/// エネミーを管理するクラス
+/// </summary>
 public class EnemyManager : MonoBehaviour
 {
-
-    int count;
+    public int pop_count;
     public int pop_frame;
     public int pop_range;
     public float pop_height;
 
     void Start()
     {
-        count = 0;
+        pop_count = 0;
         enemys = new List<GameObject>();
     }
 
     List<GameObject> enemys;
     void Update()
     {
-        count++;
-        if (count % pop_frame == 0)
+        pop_count++;
+        if (pop_count % pop_frame == 0)
         {
             var enemy = Resources.Load<GameObject>("Prefabs/Enemy");
 

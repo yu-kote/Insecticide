@@ -1,0 +1,1 @@
+"UnityChan"と"Warrior Pack Bundle 2 FREE" をダウンロードするように。

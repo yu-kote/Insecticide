@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// 攻撃処理をするクラス
+/// </summary>
 public class AttackManager : MonoBehaviour
 {
     [SerializeField]
@@ -21,7 +24,7 @@ public class AttackManager : MonoBehaviour
             if (hitobject != null)
             {
                 var enemy = hitobject.GetComponent<Enemy>();
-                enemy.hit(player.attack_power);
+                enemy.hit(player.attackPower());
             }
         }
 
