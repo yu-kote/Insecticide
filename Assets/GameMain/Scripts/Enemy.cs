@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         invincible_count = 0;
+        materialReset();
     }
 
     void Update()
@@ -32,9 +33,10 @@ public class Enemy : MonoBehaviour
             {
                 invincible_count = 0;
                 is_invincible = false;
+                materialReset();
             }
         }
-
+        damageStaging();
 
     }
 
@@ -49,10 +51,41 @@ public class Enemy : MonoBehaviour
     {
         if (damage_ <= 0) return;
         if (is_invincible) return;
+        hitPlay();
         hp -= damage_;
         damage = damage_;
         is_invincible = true;
         if (hp <= 0)
             hp = 0;
+    }
+
+    [SerializeField]
+    AudioSource hit_mp3;
+
+    public void hitPlay()
+    {
+        hit_mp3.Play();
+    }
+
+    public Material[] material = new Material[2];
+    bool is_damagestaging;
+
+    void materialReset()
+    {
+        gameObject.GetComponent<MeshRenderer>().material = material[0];
+    }
+
+    void damageStaging()
+    {
+        if (!is_invincible) return;
+        if (invincible_count % 5 == 0)
+        {
+            is_damagestaging = !is_damagestaging;
+        }
+
+        if (is_damagestaging)
+            gameObject.GetComponent<MeshRenderer>().material = material[0];
+        else
+            gameObject.GetComponent<MeshRenderer>().material = material[1];
     }
 }

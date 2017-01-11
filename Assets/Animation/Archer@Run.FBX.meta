@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4ab1fdda55b6ec741be4e45123b61c51
+guid: a4ad2b5e0002dc5499df7a9335a55f68
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
@@ -174,7 +174,10 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
+      improve retargeting quality.\n\t'B_Spine' has translation animation that will
+      be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     animationCompression: 3
