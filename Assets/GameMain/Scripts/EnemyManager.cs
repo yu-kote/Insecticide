@@ -16,7 +16,7 @@ public class EnemyManager : MonoBehaviour
     PlayerController player;
     [SerializeField]
     GameController gamecontroller;
-    
+
     void Start()
     {
         pop_count = 0;
@@ -61,6 +61,7 @@ public class EnemyManager : MonoBehaviour
                 hit_mp3.Play();
                 Destroy(enemys[i]);
                 enemys.RemoveAt(i);
+                GameController.instance.score++;
                 break;
             }
         }

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    public static GameController instance = new GameController();
+    public int score = 0;
 
     public enum GameStep
     {
@@ -47,6 +49,8 @@ public class GameController : MonoBehaviour
 
     public int enemykill_count;
 
+    public AudioSource end_whistle;
+    public AudioSource bgm;
 
     void Start()
     {
@@ -111,13 +115,16 @@ public class GameController : MonoBehaviour
                 //gamecount_text.gameObject.SetActive(false);
                 can_result_move_text.gameObject.SetActive(true);
                 game_count = 0;
+                end_whistle.Play();
             }
         }
         if (gamestep == GameStep.END)
         {
             can_result_move_text.text = "終わり！";
+            bgm.volume -= 0.0005f;
             if (game_count > can_result_move_count)
             {
+
                 if (Input.GetKeyDown(KeyCode.Return) ||
                     Input.GetButtonDown("Jump") ||
                     game_count > can_result_move_count + 300)
